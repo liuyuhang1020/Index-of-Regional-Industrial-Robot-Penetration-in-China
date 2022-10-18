@@ -18,6 +18,10 @@ from sklearn.neural_network import MLPClassifier
 from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.combine import SMOTEENN, SMOTETomek
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
 
 vectorizer=CountVectorizer()
 transformer = TfidfTransformer()
@@ -218,6 +222,14 @@ for X_name in X_names.keys():
         index.append(10*X_name + sampling_name)
 
 cmat_df = pd.DataFrame(columns=clf_names, index=index)
+
+def split_train_test(x, y, test_size):
+    train_idx, test_idx = train_test_split(range(len(y)), test_size=test_size, stratify=y)
+    x_train = x[train_idx, :]
+    y_train = y[train_idx]
+    x_test = x[test_idx, :]
+    y_test = y[test_idx]
+    return x_train, y_train, x_test, y_test
 
 def eval(clf, X, sampling=None, test_size=0.3):
     x_train, y_train, x_test, y_test = split_train_test(X, y, test_size)
