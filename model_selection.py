@@ -218,3 +218,18 @@ for X_name in X_names.keys():
         index.append(10*X_name + sampling_name)
 
 cmat_df = pd.DataFrame(columns=clf_names, index=index)
+
+def eval(clf, X, sampling=None, test_size=0.3):
+    x_train, y_train, x_test, y_test = split_train_test(X, y, test_size)
+    if sampling:
+        x_resampled, y_resampled = sampling.fit_resample(x_train, y_train)
+    else:
+        x_resampled, y_resampled = x_train, y_train
+    clf.fit(x_resampled, y_resampled)
+    y_pred = clf.predict(x_test)
+    return confusion_matrix(y_test, y_pred)
+
+for i, clf in enumerate(clfs):
+    for a, X in enumerate(Xs):
+        for b, sampling in enumerate(samplings):
+            cmat_df.loc[10*(a + 1) + b + 1, clf_names[i]] = eval(clf, X, sampling)
