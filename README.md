@@ -1,12 +1,12 @@
-# 北京大学企业大数据研究中心
+# Index of Regional Industrial Robot Penetration in China
 
-*数据分析助研*
+This project is affiliated with the [Center for Enterprise Research of Peking University](https://cer.gsm.pku.edu.cn)
 
-- 助研主要任务为利用经营范围文本从所有企业中识别出工业机器人企业。
+- The main task of the research assistant is to identify industrial robot companies from all enterprises based on the text of their business scope, thereby establishing a database of Chinese industrial robot companies.
 
-- 使用MySQL操作远程机数据库，筛选出1000万家制造业企业和5000家工业机器人制造企业，用作分类数据。
+- Use MySQL to operate a remote machine database, filtering out 10 million manufacturing enterprises and 5,000 industrial robot manufacturing enterprises for use as classification data.
 
-- 在进行NLP特征工程的过程中，设计了“企业经营范围标准化”算法，该算法能将企业工商注册信息中的大段文字的经营范围转化为若干条相同结构的偏正短语，每一条包含该企业的一项产品或服务，提升了模型分类效果。
+- During the process of NLP feature engineering, a "Business Scope Standardization" algorithm was designed. This algorithm can convert the extensive text of business scopes found in enterprise registration information into several parallel structured phrases, each containing one product or service offered by the enterprise, thereby improving the model's classification effect.
 
-- 使用Word2Vec模型对分词后的经营范围进行编码，并使用XGBoost模型进行分类，最终模型的AUC分数为0.85。
+- The Word2Vec model was used to encode the segmented business scopes, and the XGBoost model was utilized for classification. The final model achieved an AUC score of 0.85.
 
