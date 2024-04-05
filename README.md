@@ -1,5 +1,7 @@
 # Index of Regional Industrial Robot Penetration in China
 
+![Image text](banner/center_for_enterprise_research.png)
+
 This project is affiliated with the [Center for Enterprise Research of Peking University](https://cer.gsm.pku.edu.cn)
 
 - The main task of the research assistant is to identify industrial robot companies from all enterprises based on the text of their business scope, thereby establishing a database of Chinese industrial robot companies.
